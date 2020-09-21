@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mooc.sb2.mapper.DemoMapper">
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultType="com.mooc.sb2.bean.Demo">
+        select
+        id
+        from demo
+        where id = #{id}
+    </select>
+
+</mapper>
