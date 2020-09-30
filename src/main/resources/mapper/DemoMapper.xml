@@ -4,7 +4,7 @@
 
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultType="com.mooc.sb2.bean.Demo">
         select
-        id
+        id, name
         from demo
         where id = #{id}
     </select>

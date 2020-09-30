@@ -9,9 +9,5 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface DemoMapper {
-
-
     Demo selectByPrimaryKey(@Param("id")  Long id);
-
-
 }
