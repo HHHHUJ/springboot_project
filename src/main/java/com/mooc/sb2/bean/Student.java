@@ -3,16 +3,16 @@ package com.mooc.sb2.bean;
 import java.io.Serializable;
 
 public class Student implements Serializable {
-    private String id;
+    private String studentId;
     private String name;
     private String score;
 
-    public String getId() {
-        return id;
+    public String getStudentId() {
+        return studentId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
     public String getName() {

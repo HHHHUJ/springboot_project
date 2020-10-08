@@ -13,15 +13,31 @@ public class TestController {
     @Resource
     private StudentService studentService;
     @RequestMapping( value = "/querystudent", method = RequestMethod.GET)
-    public Student queryStudentById(String id) {
-        return this.studentService.queryStudentById(id);
+    public Student queryStudentById(String studentId) {
+        return this.studentService.queryStudentById(studentId);
     }
-    @RequestMapping(value = "/addstudent", method = RequestMethod.POST)
 
+    @RequestMapping(value = "/addstudent", method = RequestMethod.POST)
     public HashMap add(@RequestBody Student student) {
         HashMap<Object, Object> objectObjectMap = new HashMap<>();
         objectObjectMap.put("success", this.studentService.add(student) >= 0);
         objectObjectMap.put("data", this.studentService.add(student));
+        return objectObjectMap;
+    }
+
+    @RequestMapping(value = "/delstudent", method = RequestMethod.POST)
+    public HashMap deleteByIds(@RequestBody Student studentId) {
+        HashMap<Object, Object> objectObjectMap = new HashMap<>();
+        objectObjectMap.put("success", this.studentService.deleteByIds(studentId) >= 0);
+        objectObjectMap.put("data", this.studentService.deleteByIds(studentId));
+        return objectObjectMap;
+    }
+
+    @RequestMapping(value = "/updatestudent", method = RequestMethod.POST)
+    public HashMap update(@RequestBody Student student) {
+        HashMap<Object, Object> objectObjectMap = new HashMap<>();
+        objectObjectMap.put("success", this.studentService.update(student) >= 0);
+        objectObjectMap.put("data", this.studentService.update(student));
         return objectObjectMap;
     }
 }

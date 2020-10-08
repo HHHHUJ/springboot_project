@@ -7,16 +7,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.Optional;
 
-@Controller
+@RestController
 @RequestMapping("/demo")
 public class DemoController {
-    @Autowired
+    @Resource
     private DemoService demoService;
     @RequestMapping("/hello/{id}")
-    @ResponseBody
     public String hello(@PathVariable(value = "id") Long id) {
         return Optional.ofNullable(demoService.getDemoById(id)).map(Demo::toString).orElse("empty String");
     }

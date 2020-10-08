@@ -23,12 +23,12 @@ public class StudentServiceImp implements StudentService {
     }
 
     @Override
-    public int deleteByIds(String id) {
-        return this.studentMapper.deleteByIds(id);
+    public int deleteByIds(Student studentId) {
+        return this.studentMapper.deleteByIds(studentId);
     }
 
     @Override
-    public Student queryStudentById(String id) {
-        return this.studentMapper.queryStudentById(id);
+    public Student queryStudentById(String studentId) {
+        return this.studentMapper.queryStudentById(studentId);
     }
 }
