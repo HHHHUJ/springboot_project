@@ -8,7 +8,6 @@ import java.io.Serializable;
 
 public class Student extends BaseEntity {
 
-//    private static final long serialVersionUID = -277891939915574508L;
     private String id;
     private String name;
     private String score;
