@@ -1,43 +1,20 @@
 package com.mooc.sb2.controller;
 
-import com.mooc.sb2.bean.Student;
-import com.mooc.sb2.service.StudentService;
-import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
-@RestController
 public class TestController {
-    @Resource
-    private StudentService studentService;
-    @RequestMapping( value = "/querystudent", method = RequestMethod.GET)
-    public Student queryStudentById(String studentId) {
-        return this.studentService.queryStudentById(studentId);
-    }
 
-    @RequestMapping(value = "/addstudent", method = RequestMethod.POST)
-    public HashMap add(@RequestBody Student student) {
-        HashMap<Object, Object> objectObjectMap = new HashMap<>();
-        objectObjectMap.put("success", this.studentService.add(student) >= 0);
-        objectObjectMap.put("data", this.studentService.add(student));
-        return objectObjectMap;
+    public static void main(String[] args) {
+        test();
+        test("111111");
+        test("2222222", "3333333");
+        test("4444444", "5555555","66666666");
     }
-
-    @RequestMapping(value = "/delstudent", method = RequestMethod.POST)
-    public HashMap deleteByIds(@RequestBody Student studentId) {
-        HashMap<Object, Object> objectObjectMap = new HashMap<>();
-        objectObjectMap.put("success", this.studentService.deleteByIds(studentId) >= 0);
-        objectObjectMap.put("data", this.studentService.deleteByIds(studentId));
-        return objectObjectMap;
-    }
-
-    @RequestMapping(value = "/updatestudent", method = RequestMethod.POST)
-    public HashMap update(@RequestBody Student student) {
-        HashMap<Object, Object> objectObjectMap = new HashMap<>();
-        objectObjectMap.put("success", this.studentService.update(student) >= 0);
-        objectObjectMap.put("data", this.studentService.update(student));
-        return objectObjectMap;
+    public static void test(String ...args) {
+        for(String arg : args) {
+            System.out.println(arg);
+        }
     }
 }
