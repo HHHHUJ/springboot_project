@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
+import javax.xml.transform.Result;
 import java.util.HashMap;
+import java.util.List;
 
 @RestController
 public class StudentController {
@@ -28,9 +29,9 @@ public class StudentController {
 
     @RequestMapping(value = "/addstudent", method = RequestMethod.POST)
     public HashMap add(@RequestBody Student student) {
-        redisTemplate.opsForValue().set("test",111111);
-        Object value = redisTemplate.opsForValue().get("test");
-        System.out.println(value);
+//        redisTemplate.opsForValue().set("test",111111);
+//        Object value = redisTemplate.opsForValue().get("test");
+//        System.out.println(value);
 //        StringRedisTemplate.opsForValue().set("test", 11111);
 //        System.out.println(StringRedisTemplate.opsForValue().get("test"));
         HashMap<Object, Object> objectObjectMap = new HashMap<>();

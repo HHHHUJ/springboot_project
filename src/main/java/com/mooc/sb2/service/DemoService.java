@@ -3,11 +3,12 @@ package com.mooc.sb2.service;
 import com.mooc.sb2.bean.Demo;
 import com.mooc.sb2.mapper.DemoMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Optional;
 
-@Component
+@Service
 public class DemoService {
     // 注入mapper层
     @Resource

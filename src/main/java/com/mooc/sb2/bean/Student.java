@@ -1,16 +1,18 @@
 package com.mooc.sb2.bean;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.mooc.sb2.entity.BaseEntity;
 
-import java.io.Serializable;
+import java.util.Date;
 
 public class Student extends BaseEntity {
 
     private String id;
     private String name;
     private String score;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date dateTime;
 
     public String getId() {
         return id;
@@ -34,5 +36,13 @@ public class Student extends BaseEntity {
 
     public void setScore(String score) {
         this.score = score;
+    }
+
+    public Date getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(Date dateTime) {
+        this.dateTime = dateTime;
     }
 }
