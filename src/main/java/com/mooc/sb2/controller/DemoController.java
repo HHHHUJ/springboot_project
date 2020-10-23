@@ -13,11 +13,11 @@ import javax.annotation.Resource;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/demo")
+@RequestMapping("/test")
 public class DemoController {
     @Resource
     private DemoService demoService;
-    @RequestMapping("/hello/{id}")
+    @RequestMapping("/{id}")
     public String hello(@PathVariable(value = "id") Long id) {
         return Optional.ofNullable(demoService.getDemoById(id)).map(Demo::toString).orElse("empty String");
     }

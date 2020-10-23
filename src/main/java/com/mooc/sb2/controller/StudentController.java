@@ -1,6 +1,7 @@
 package com.mooc.sb2.controller;
 
 import com.mooc.sb2.bean.Student;
+import com.mooc.sb2.exception.NotExistException;
 import com.mooc.sb2.service.StudentService;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +25,10 @@ public class StudentController {
         Student result = this.studentService.queryStudentById(id);
         redisTemplate.opsForValue().set("hashKey", result);
         Object hashKey = redisTemplate.opsForValue().get("hashKey");
-        return (Student) hashKey;
+        if(hashKey == null) throw new NotExistException(id);
+        else {
+            return (Student) hashKey;
+        }
     }
 
     @RequestMapping(value = "/addstudent", method = RequestMethod.POST)
