@@ -93,3 +93,4 @@ mybatis:
     map-underscore-to-camel-case: true
   property:
     order: BEFORE
+  config-location: classpath:config/mybatis-config.xml
